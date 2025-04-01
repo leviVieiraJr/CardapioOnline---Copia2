@@ -154,7 +154,7 @@ Obrigado por utilizar nosso serviço! 🚀`.trim();
     
     const encodedMessage = encodeURIComponent(message);
     const whatsappNumber = "5519971074263";
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
     
     window.location.href = whatsappUrl;
     
