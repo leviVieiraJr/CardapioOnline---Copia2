@@ -154,9 +154,15 @@ Obrigado por utilizar nosso serviço! 🚀`.trim();
     
     const encodedMessage = encodeURIComponent(message);
     const whatsappNumber = "5519971074263";
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
-    
-    window.location.href = whatsappUrl;
+     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      // Link padrão para mobile
+      window.location.href = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
+    } else {
+      // Para desktop, abrir WhatsApp Web
+      window.open(`https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`, '_blank');
+    }
     
 
     // Esconde o carrinho, limpa os dados e exibe a mensagem de sucesso
